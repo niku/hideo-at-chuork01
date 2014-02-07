@@ -1,15 +1,15 @@
 ---
-id: hideo-at-chuork01
-base_name: hideo-at-chuork01
+id: hideo-at-sapporo-chuork01
+base_name: hideo-at-sapporo-chuork01
 tags:
-- chuork01
+- sapporo-chuork01
 - devops
 - botti
 presentation_date:
 version: 1.0.0
 licenses: []
 slideshare_id:
-speaker_deck_id: hideo-at-chuork01
+speaker_deck_id: hideo-at-sapporo-chuork01
 ustream_id:
 vimeo_id:
 author:

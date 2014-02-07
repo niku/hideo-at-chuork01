@@ -16,9 +16,8 @@ TODO: スライドの説明
 
 ### インストール
 
-    gem install rabbit-slide-niku-hideo-at-chuork01
+    gem install rabbit-slide-niku-hideo-at-sapporo-chuork01
 
 ### 表示
 
-    rabbit rabbit-slide-niku-hideo-at-chuork01.gem
-
+    rabbit rabbit-slide-niku-hideo-at-sapporo-chuork01.gem
