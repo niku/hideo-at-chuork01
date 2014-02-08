@@ -7,10 +7,12 @@ author
 
 -   にくです
 -   コンサドーレ札幌が好きです
+-   @niku_name
+-   http://niku.name/
 
 # コンサドーレホーム開幕戦情報
 
-3/9(日)13:00@札幌ドーム vs モンテディオ山形
+3/9(日)13:00 @ 札幌ドーム vs モンテディオ山形
 
 ![](2014yuni1st.jpg){:width='400' height='400'}
 
@@ -52,11 +54,12 @@ author
 
 # DevOpsは壮大なストーリー
 
--   大きすぎて今回はうまく話せない
+-   大きすぎて今回はうまく話せないことがわかった
+-   すまん
 
 # ひでお
 
--   ひとりで開発と運用やるのでお互いは理解できている
+-   ひとりで開発と運用をやるのでお互いは理解できている
 -   プロダクトをよりよくするため
     -   運用の圧縮
     -   人が増えたときのノウハウの共有
@@ -65,10 +68,10 @@ author
 # ひでお(旅立ち編)
 
 -   CI環境作るためのツール
--   VirtualBox
--   Vagrant
--   Packer
--   Chef
+    -   VirtualBox
+    -   Vagrant
+    -   Packer
+    -   Chef
 
 # ケース
 
@@ -107,6 +110,9 @@ author
 
 -   仮想環境に作ろう
     -   実際のサーバー用意するより作ったり壊したりが簡単
+
+# 仮想環境を作る
+
 -   必要なもの
     -   自分のPC
     -   仮想化ソフト
@@ -123,16 +129,23 @@ author
 
 # 仮想化環境を作ろう
 
--   仮想化ソフト=いらないPC （ハードウェア）
+-   仮想化ソフトとは，使っていないPC（ハードウェア）のようなもの
 -   中身（OS）をインストールする
 
-その後Jenkinsを入れる
+# CI(Jenkins)を入れる
+
+    $ wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+    $ sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+    $ sudo apt-get update
+    $ sudo apt-get install jenkins
+
+<https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins#InstallingJenkins-Unix%2FLinuxInstallation>
 
 # 仮想化環境でのCIできた
 
+-   もっともっと
 -   簡単にノウハウを配布したい
 -   記憶や手順書からの脱却
--   もっともっと
 
 # Vagrant
 
@@ -145,9 +158,9 @@ author
 
 # Vagrantのインストール
 
+-   インストーラーで簡単にインストールできる
 -   <http://www.vagrantup.com/downloads.html>
 -   Windows/OSX/Debian/RHEL
--   インストーラーで簡単にインストールできる
 
 # Vagrantfile
 
@@ -165,7 +178,19 @@ author
     __EOS__
     end
 
-# 帰ったらやってみよう
+# 帰ったらやってみようVagrant
+
+- Vagrantfileを書いて
+- vagrant up
+- ブラウザからJenkinsにアクセスできる
+
+# 帰ったらやってみようVagrant(2)
+
+- いるもの
+ - VirtualBox
+ - Vagrant
+
+# 帰ったらやってみようVagrant(3)
 
     $ mkdir hideo
     $ cd hideo
@@ -183,9 +208,9 @@ author
 
 # Vagrantの課題解消
 
+-   もっともっと
 -   Boxも自分で作れるようになりたい
 -   <http://docs.vagrantup.com/v2/boxes/base.html>
--   もっともっと
 
 # Packer
 
@@ -265,13 +290,21 @@ author
 -   「Packerを使ってVagrantのBoxを作る方法を一つずつ説明する」という良いコンテンツがある
 -   [packer vagrant] で検索
 
-# 帰ったらやってみよう
+# 帰ったらやってみようPacker
+
+- コマンドが終わったらDebianベースでVagrantに取り込めるBoxができている
+
+# 帰ったらやってみようPacker(2)
+
+- いるもの
+ - VirtualBox
+ - Packer
+
+# 帰ったらやってみようPacker(3)
 
     $ git clone git@github.com:niku/my-packer-and-vagrant-example.git
     $ cd my-packer-and-vagrant-example
     $ packer build wheezy64.json
-
-処理が終わったらDebianベースでVagrantに取り込めるBoxができている
 
 # Vagrantでやってたこと
 
@@ -280,13 +313,11 @@ author
 
 Boxの取得はできた
 
-# サーバーへの処理をShellでやるとしんどいこと
+# サーバーへの処理をShellでやるとしんどなってくる
 
 -   パッケージ化されていないものやソースから最新版を入れてメンテすること
 -   設定ファイルの内容を書くこと
 -   何回も動かしても大丈夫なようにすること
-    -   何回動かしても大丈夫にしておけば，毎回動かせる
-    -   つまり動かしていいかの迷いがなくなる
 
 # Chef(Chef Solo)
 
@@ -300,7 +331,21 @@ Boxの取得はできた
 -   全部書いてある
 -   <http://tatsu-zine.com/books/chef-solo>
 
-# 帰ったらやってみよう
+# 帰ったらやってみようChef(1)
+
+- サーバーが自分のidでログインできるようになっている
+- Ruby2.1.0が使えるようになっている
+
+# 帰ったらやってみようChef(2)
+
+- いるもの
+ - VirtualBox
+ - Vagrant
+ - git
+ - Ruby実行環境
+ - gem(knife-solo)
+
+# 帰ったらやってみようChef(3)
 
     $ git clone git@github.com:niku/server-settings-with-chef-on-debian.git
     $ cd server-settings-with-chef-on-debian
@@ -319,13 +364,20 @@ Boxの取得はできた
     $ bundle exec knife solo cook 127.0.0.1 nodes/default.json --ssh-user vagrant --ssh-password vagrant --ssh-port 2222
     # password "vagrant" を何回か打つ
     $ ssh 127.0.0.1 -p 2222
-    # 自分のidでログインできるようになっている
 
-# おれたちの活躍はこれからだ
+# まとめ
 
 -   VirtualBox 仮想化ツール
 -   Vagrant 仮想環境をBoxとProvisionから構築するツール
 -   Packer Boxを作るツール
 -   Chef Provision
+
+# 宿題
+
+-   Vagrant動かしてみる
+-   Packer動かしてみる
+-   Chef動かしてみる
+
+# 俺たちのひでおはこれからだ
 
 にく先生の次回作にご期待ください
