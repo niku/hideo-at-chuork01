@@ -194,7 +194,7 @@ author
 
     $ mkdir hideo
     $ cd hideo
-    $ curl -o Vagrantfile https://gist.github.com/niku/8867832
+    $ curl -o Vagrantfile https://gist.githubusercontent.com/niku/8867832/raw/5b7cafeedd37b775000b3fa87a1076f8980f67dd/Vagrantfile
     $ vagrant up
     # 処理が終わったら，ブラウザから http://localhost:18080/ にアクセスすると
     # Jenkins が動いている
